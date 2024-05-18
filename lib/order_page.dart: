@@ -1,0 +1,50 @@
+import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+class OrderPage extends StatefulWidget {
+  @override
+  _OrderPageState createState() => _OrderPageState();
+}
+
+class _OrderPageState extends State<OrderPage> {
+  GoogleMapController mapController;
+  final TextEditingController orderDetailsController = TextEditingController();
+  LatLng _currentPosition = LatLng(0, 0);
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Place Order'),
+      ),
+      body: Column(
+        children: <Widget>[
+          TextField(
+            controller: orderDetailsController,
+            decoration: InputDecoration(labelText: 'Order Details'),
+          ),
+          Container(
+            height: 400.0,
+            child: GoogleMap(
+              onMapCreated: _onMapCreated,
+              initialCameraPosition: CameraPosition(
+                target: _currentPosition,
+                zoom: 11.0,
+              ),
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              // Handle order submission
+            },
+            child: Text('Submit Order'),
+          ),
+        ],
+      ),
+    );
+  }
+}
