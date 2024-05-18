@@ -1,0 +1,22 @@
+name: mandubna
+description: A new Flutter project.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: latest_version
+  firebase_auth: latest_version
+  cloud_firestore: latest_version
+  google_maps_flutter: latest_version
+  firebase_messaging: latest_version
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
